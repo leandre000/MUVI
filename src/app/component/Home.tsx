@@ -22,13 +22,15 @@ interface AnimatedRowProps {
   name: string;
 }
 
-// Centralized image data source for dynamic rendering, with explicit types.
 const rows: RowData[] = [
   {
     images: [
-      "/ImgCon1/Image (1).svg", "/ImgCon1/Image (2).svg", "/ImgCon1/Image (3).svg",
-      "/ImgCon1/Image (4).svg", "/ImgCon1/Image (5).svg", "/ImgCon1/Image (6).svg",
-      "/ImgCon1/Image (7).svg", "/ImgCon1/Image (8).svg",
+      "/ImgCon3/Image (1).webp",
+      "/ImgCon1/Image (2).webp",
+      "/ImgCon3/Image (3).webp",
+      "/ImgCon1/Image (4).webp",
+      "/ImgCon1/Image (5).webp",
+      "/ImgCon1/Image (6).webp"
     ],
     direction: 'left', // right to left
     borderColor: 'border-blue-500',
@@ -37,9 +39,12 @@ const rows: RowData[] = [
   },
   {
     images: [
-      "/ImgCon3/Image (1).svg", "/ImgCon3/Image (2).svg","/ImgCon4/Image (6).svg",
-      "/ImgCon2/Image (5).svg", "/ImgCon4/Image (1).svg", "/ImgCon3/Image (6).svg",
-      "/ImgCon3/Image (7).svg", "/ImgCon4/Image (7).svg",
+      "/ImgCon2/Image (1).webp",
+      "/ImgCon2/Image (2).webp",
+      "/ImgCon3/Image (3).webp",
+      "/ImgCon2/Image (4).webp",
+      "/ImgCon3/Image (5).webp",
+      "/ImgCon2/Image (6).webp"
     ],
     direction: 'right', // left to right
     borderColor: 'border-red-500',
@@ -48,9 +53,13 @@ const rows: RowData[] = [
   },
   {
     images: [
-      "/ImgCon2/Image (1).svg", "/ImgCon2/Image (2).svg", "/ImgCon2/Image (3).svg",
-      "/ImgCon2/Image (4).svg", "/ImgCon2/Image (5).svg", "/ImgCon2/Image (6).svg",
-      "/ImgCon2/Image (7).svg", "/ImgCon2/Image (8).svg",
+      "/ImgCon1/Image (1).webp",
+      "/ImgCon3/Image (2).webp",
+      "/ImgCon3/Image (3).webp",
+      "/ImgCon3/Image (4).webp",
+      "/ImgCon1/Image (5).webp",
+      "/ImgCon3/Image (6).webp",
+      "/ImgCon1/Image (7).webp"
     ],
     direction: 'left',
     borderColor: 'border-blue-500',
@@ -59,9 +68,12 @@ const rows: RowData[] = [
   },
   {
     images: [
-      "/ImgCon4/Image (1).svg", "/ImgCon4/Image (2).svg", "/ImgCon4/Image (3).svg",
-      "/ImgCon4/Image (4).svg", "/ImgCon4/Image (5).svg", "/ImgCon4/Image (6).svg",
-      "/ImgCon4/Image (7).svg", "/ImgCon1/Image (2).svg",
+      "/ImgCon1/Image (1).webp",
+      "/ImgCon2/Image (2).webp",
+      "/ImgCon3/Image (3).webp",
+      "/ImgCon2/Image (4).webp",
+      "/ImgCon2/Image (5).webp",
+      "/ImgCon3/Image (6).webp"
     ],
     direction: 'right',
     borderColor: 'border-red-500',

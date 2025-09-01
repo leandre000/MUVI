@@ -201,7 +201,7 @@ function Signup() {
 
         {/* Right Illustration Section */}
         <div className={styles.illustrationSection()}>
-          <Image src="/ImgCon1/Image (3).svg" height={500} width={500} alt="login-img" className="mt-20" decoding="async" priority={false} />
+          <Image src="/ImgCon3/Image (1).webp" height={500} width={500} alt="login-img" className="mt-20" decoding="async" priority={false} />
         </div>
       </div>
     </div>

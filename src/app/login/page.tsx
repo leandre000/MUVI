@@ -17,10 +17,10 @@ const styles = {
     base: "form-container flex justify-between overflow-hidden drop-shadow-xl w-11/12 max-w-screen-xl shadow-2xl",
   }),
   formSection: tv({
-    base: "form-section w-1/2 px-24 py-12 border-red-600",
+    base: "form-section w-1/2 px-24 py-10 mt-4 border-red-600",
   }),
   illustrationSection: tv({
-    base: "illustration-section w-1/2 flex justify-center items-center",
+    base: "illustration-section w-1/2 flex justify-center items-center mb-10",
   }),
   logoWrap: tv({
     base: "logo-wrap flex justify-center gap-x-1 items-center mt-6",
@@ -185,7 +185,7 @@ function Login() {
 
         {/* Right Illustration Section */}
         <div className={styles.illustrationSection()}>
-          <Image src="/ImgCon2/Image (2).svg" height={500} width={500} alt="login-img" className="mt-20" decoding="async" priority={false} />
+          <Image src="/ImgCon3/Image (2).webp" height={500} width={500} alt="login-img" className="mt-20" decoding="async" priority={false} />
         </div>
       </div>
     </div>

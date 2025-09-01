@@ -22,12 +22,12 @@ interface Movie { id: number; title: string; poster: string; rating?: number; }
 
 const TopRatedMovies: React.FC = () => {
   const movies: Movie[] = [
-    { id: 1, title: "Horror", poster: "/ImgCon3/Image (1).svg" },
-    { id: 2, title: "Action", poster: "/ImgCon3/Image (2).svg" },
-    { id: 3, title: "Romantic", poster: "/ImgCon3/Image (3).svg" },
-    { id: 4, title: "Weapons", poster: "/ImgCon3/Image (4).svg" },
-    { id: 5, title: "GUARDIANS", poster: "/ImgCon3/Image (5).svg" },
-    { id: 6, title: "PUNCH", poster: "/ImgCon3/Image (6).svg" }, 
+    { id: 1, title: "Horror", poster: "/ImgCon3/Image (1).webp" },
+    { id: 2, title: "Action", poster: "/ImgCon1/Image (2).webp" },
+    { id: 3, title: "Romantic", poster: "/ImgCon3/Image (3).webp" },
+    { id: 4, title: "Weapons", poster: "/ImgCon2/Image (4).webp" },
+    { id: 5, title: "GUARDIANS", poster: "/ImgCon3/Image (5).webp" },
+    { id: 6, title: "PUNCH", poster: "/ImgCon3/Image (6).webp" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
