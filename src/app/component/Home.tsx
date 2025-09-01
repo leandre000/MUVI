@@ -104,7 +104,7 @@ const Home: React.FC = () => {
         />
 
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent "></div>
 
         {/* Animated rows */}
         {rows.map((row, index) => (

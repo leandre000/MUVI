@@ -1,8 +1,37 @@
 @import "tailwindcss";
 
-html,body{
+html,body {
   background-color: black;
+  scroll-behavior: smooth; /* ✅ Smooth scroll */
+   overflow-x: hidden; 
 }
+
+/* 🔹 Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bb0000; /* Red */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff1a1a; /* Brighter red on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Optional: keep track invisible */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #bb0000 transparent;
+}
+
 @layer utilities {
   @keyframes loop-left {
     from {

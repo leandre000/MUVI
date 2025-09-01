@@ -11,7 +11,8 @@ import {
 } from "@/app/component/ui/resizable-navbar";
 import { useState } from "react";
 import Button from "./Button"; 
-import { LogIn } from "lucide-react";
+import { LogIn } from "lucide-react";    
+import { useRouter } from "next/navigation";
 
 const NavbarCom = () => {
   const navItems = [
@@ -30,7 +31,10 @@ const NavbarCom = () => {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const router = useRouter();
+  const navigate=(path:string)=>{
+    router.push(path);
+  }
   return (
     <div className="relative w-full">
       <Navbar>
@@ -38,15 +42,14 @@ const NavbarCom = () => {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} /> 
-  <Button
-    label={
-      <span className="flex items-center cursor-pointer gap-2 justify-center">
-        <LogIn className="w-4 h-4 cursor-pointer" />
-        Login
-      </span>
-    }
-    onClick={() => {}}
-  /> 
+<Button
+  className="relative z-50"
+  label="Login"
+  onClick={() => { 
+    navigate("/login");
+  }}
+/>
+
         </NavBody>
 
         {/* Mobile Navigation */}

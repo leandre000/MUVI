@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
   label: ReactNode;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "empty";
   disabled?: boolean;
   className?: string;
   contentEditable?: boolean; // optional if you want editable text
@@ -23,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
     primary: "bg-[#E50000] text-sm text-white hover:bg-[#C40000]",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     outline: "border border-gray-400 text-gray-700 hover:bg-gray-100",
+    empty:""
   };
 
   return (

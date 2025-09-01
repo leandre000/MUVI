@@ -1,7 +1,35 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useRef } from "react";
+import { tv } from "tailwind-variants";
 
+// ------------------ Tailwind Variants ------------------
+const containerStyle = tv({
+  base: "relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform",
+});
+
+const innerGrid = tv({
+  base:
+    "h-full w-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] overflow-hidden",
+});
+
+const baseLayer = tv({
+  base: "h-full w-full [grid-area:1/1] mix-blend-soft-light",
+});
+
+const contentLayer = tv({
+  base: "h-full w-full bg-gradient-to-tr from-black via-black/80 to-[#3a0d0d]",
+});
+
+const opacityLayer = tv({
+  base: "w-full h-full [grid-area:1/1] mix-blend-soft-light opacity-[var(--opacity)] transition-opacity",
+});
+
+const backgroundLayer = tv({
+  base: "w-full h-full [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)]",
+});
+
+// ------------------ GlareCard Component ------------------
 export const GlareCard = ({
   children,
   className,
@@ -17,7 +45,7 @@ export const GlareCard = ({
     rotate: { x: 0, y: 0 },
   });
 
-  const containerStyle = {
+  const containerCSS: React.CSSProperties = {
     "--m-x": "50%",
     "--m-y": "50%",
     "--r-x": "0deg",
@@ -32,12 +60,12 @@ export const GlareCard = ({
     "--transition": "var(--duration) var(--easing)",
   } as React.CSSProperties;
 
-  const backgroundStyle = {
+  const backgroundCSS = {
     "--step": "5%",
     "--foil-svg": `url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.99994 3.419C2.99994 3.419 21.6142 7.43646 22.7921 12.153C23.97 16.8695 3.41838 23.0306 3.41838 23.0306' stroke='white' stroke-width='5' stroke-miterlimit='3.86874' stroke-linecap='round' style='mix-blend-mode:darken'/%3E%3C/svg%3E")`,
     "--pattern": "var(--foil-svg) center/100% no-repeat",
     "--rainbow":
-      "repeating-linear-gradient( 0deg,rgb(255,119,115) calc(var(--step) * 1),rgba(255,237,95,1) calc(var(--step) * 2),rgba(168,255,95,1) calc(var(--step) * 3),rgba(131,255,247,1) calc(var(--step) * 4),rgba(120,148,255,1) calc(var(--step) * 5),rgb(216,117,255) calc(var(--step) * 6),rgb(255,119,115) calc(var(--step) * 7) ) 0% var(--bg-y)/200% 700% no-repeat",
+      "repeating-linear-gradient(0deg,rgb(255,119,115) calc(var(--step) * 1),rgba(255,237,95,1) calc(var(--step) * 2),rgba(168,255,95,1) calc(var(--step) * 3),rgba(131,255,247,1) calc(var(--step) * 4),rgba(120,148,255,1) calc(var(--step) * 5),rgb(216,117,255) calc(var(--step) * 6),rgb(255,119,115) calc(var(--step) * 7)) 0% var(--bg-y)/200% 700% no-repeat",
     "--diagonal":
       "repeating-linear-gradient(128deg,#0e152e 0%,hsl(180,10%,60%) 3.8%,hsl(180,10%,60%) 4.5%,hsl(180,10%,60%) 5.2%,#0e152e 10%,#0e152e 12%) var(--bg-x) var(--bg-y)/300% no-repeat",
     "--shade":
@@ -47,9 +75,9 @@ export const GlareCard = ({
 
   return (
     <div
-      style={containerStyle}
+      style={containerCSS}
       ref={refElement}
-      className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform w-[380px] h-[260px] m-4"
+      className={cn(containerStyle(), "w-[380px] h-[260px] m-4")}
       onPointerMove={(event) => {
         const rotateFactor = 0.4;
         const rect = event.currentTarget.getBoundingClientRect();
@@ -102,17 +130,12 @@ export const GlareCard = ({
         }
       }}
     >
-      <div className="h-full w-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] overflow-hidden">
-        <div className="h-full w-full [grid-area:1/1] mix-blend-soft-light">
-          <div className={cn("h-full w-full bg-gradient-to-tr from-black via-black/80 to-[#3a0d0d] ", className)}>
-            {children}
-          </div>
+      <div className={innerGrid()}>
+        <div className={baseLayer()}>
+          <div className={cn(contentLayer(), className)}>{children}</div>
         </div>
-        <div className="w-full h-full [grid-area:1/1] mix-blend-soft-light opacity-[var(--opacity)] transition-opacity" />
-        <div
-          className="w-full h-full [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)]"
-          style={{ ...backgroundStyle }}
-        />
+        <div className={opacityLayer()} />
+        <div className={backgroundLayer()} style={backgroundCSS} />
       </div>
     </div>
   );

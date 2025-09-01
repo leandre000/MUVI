@@ -5,9 +5,35 @@ import { motion } from "framer-motion";
 import Text from "./Text";
 import Button from "./Button";
 import { Clapperboard } from "lucide-react";
+import { tv } from "tailwind-variants";
 
-// Wrap custom components with motion for animation support
-const MotionText = motion(Text); 
+// Motion wrappers
+const MotionText = motion(Text);
+
+// Tailwind Variants
+const footerWrapper = tv({
+  base: "flex items-center justify-center p-4 mt-16",
+});
+
+const footerContainer = tv({
+  base: "relative w-full max-w-8xl overflow-hidden bg-black text-white rounded-xl shadow-2xl",
+});
+
+const footerOverlay = tv({
+  base: "absolute inset-0 bg-gradient-to-tr from-black to-[#3a0d0d] opacity-90 rounded-xl z-0",
+});
+
+const contentWrapper = tv({
+  base: "relative flex flex-col md:flex-row items-center justify-between p-6 md:p-10 space-y-6 md:space-y-0 md:space-x-72 gap-x-40 z-10",
+});
+
+const textContent = tv({
+  base: "flex-1 text-center md:text-left",
+});
+
+const buttonLabel = tv({
+  base: "flex items-center gap-2 py-2",
+});
 
 interface FooterProps {
   title: string;
@@ -24,18 +50,18 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-4 mt-16">
+    <div className={footerWrapper()}>
       {/* Main container */}
-      <div className="relative w-full max-w-8xl overflow-hidden bg-black text-white rounded-xl shadow-2xl">
+      <div className={footerContainer()}>
         {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-black to-[#3a0d0d] opacity-90 rounded-xl z-0"></div>
+        <div className={footerOverlay()} />
 
         {/* Content wrapper */}
-        <div className="relative flex flex-col md:flex-row items-center justify-between p-6 md:p-10 space-y-6 md:space-y-0 md:space-x-72 gap-x-40 z-10">
+        <div className={contentWrapper()}>
           {/* Text content */}
-          <div className="flex-1 text-center md:text-left">
+          <div className={textContent()}>
             <MotionText
-              as="h4" 
+              as="h4"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -44,7 +70,7 @@ const Footer: React.FC = () => {
             </MotionText>
 
             <MotionText
-              as="p" 
+              as="p"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -64,15 +90,15 @@ const Footer: React.FC = () => {
               stiffness: 100,
             }}
           >
-              <Button
-         label={
-          <span className="flex items-center gap-2 py-2">
-              <Clapperboard className="w-5 h-5" />
-              {data.buttonText}
-            </span>
-          }
-          onClick={() => {}}
-        />
+            <Button
+              label={
+                <span className={buttonLabel()}>
+                  <Clapperboard className="w-5 h-5" />
+                  {data.buttonText}
+                </span>
+              }
+              onClick={() => {}}
+            />
           </motion.div>
         </div>
       </div>
