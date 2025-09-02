@@ -57,9 +57,9 @@ const rows: RowData[] = [
       "/ImgCon3/Image (2).webp",
       "/ImgCon3/Image (3).webp",
       "/ImgCon3/Image (4).webp",
-      "/ImgCon1/Image (5).webp",
+      "/ImgCon3/Image (5).webp",
       "/ImgCon3/Image (6).webp",
-      "/ImgCon1/Image (7).webp"
+      "/ImgCon1/Image (2).webp"
     ],
     direction: 'left',
     borderColor: 'border-blue-500',
