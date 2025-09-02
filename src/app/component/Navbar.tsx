@@ -85,7 +85,9 @@ const NavbarCom = () => {
         Sign
       </span>
     }
-    onClick={() => {}}
+     onClick={() => { 
+    navigate("/login");
+  }}
   /> 
             </div>
           </MobileNavMenu>
