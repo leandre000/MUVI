@@ -1,5 +1,5 @@
-import React from 'react'
-import Hero from './page/home'
+import React from 'react' 
+import Hero from './home'
 
 const page = () => {
   return (

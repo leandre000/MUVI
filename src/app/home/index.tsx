@@ -2,7 +2,7 @@
 
 import NavbarCom from "@/app/component/Navbar";
 import { Loader } from "@/app/component/ui/loader";
-import React, { lazy, Suspense } from "react"; 
+import React, { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("@/app/component/Home"));
 const TopRatedMovie = lazy(() => import("@/app/component/TopRatedMovies"));
