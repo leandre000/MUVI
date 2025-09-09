@@ -58,6 +58,14 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<InputProps> = ({ type, placeholder, className = "", ...props }) => (
   <input type={type} placeholder={placeholder} className={styles.input({ className })} {...props} />
 );
+ 
+const handleGoogleLogin = () => {
+  window.open(
+    "http://localhost:3000/api/auth/google",
+    "_self"
+  );
+};
+
 
 function Login() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -122,7 +130,7 @@ function Login() {
             <div className={styles.socialWrap()}>
               <Button variant="empty" className={styles.socialBtn()} label={<FaFacebookF className={styles.socialIcon()} />} />
               <Button variant="empty" className={styles.socialBtn()} label={<FaApple className={styles.socialIcon()} />} />
-              <Button variant="empty" className={styles.socialBtn()} label={<FaGoogle className={styles.socialIcon()} />} />
+              <Button variant="empty" onClick={handleGoogleLogin} className={styles.socialBtn()} label={<FaGoogle className={styles.socialIcon()} />} />
             </div>
 
             <div className={styles.footer()}>

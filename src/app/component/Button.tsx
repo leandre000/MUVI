@@ -30,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
+      type="button"
       contentEditable={contentEditable}
       className={`${baseStyles} ${variants[variant]} ${
         disabled ? "opacity-50 cursor-not-allowed" : ""
