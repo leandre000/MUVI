@@ -2,19 +2,20 @@
 
 import NavbarCom from "@/app/component/Navbar";
 import { Loader } from "@/app/component/ui/loader";
-import { useSearchParams } from "next/navigation"; // ✅ App Router hook
-import React, { lazy, Suspense, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import React, { Suspense, useEffect } from "react";
 
-const Home = lazy(() => import("@/app/component/Home"));
-const TopRatedMovie = lazy(() => import("@/app/component/TopRatedMovies"));
-const StreamCard = lazy(() => import("@/app/component/StreamCard"));
-const Mempership = lazy(() => import("@/app/component/Mempership"));
-const Faqs = lazy(() => import("@/app/component/Faqs"));
-const Footer = lazy(() => import("@/app/component/Footer"));
+// ✅ Import components normally (Next.js handles lazy loading automatically)
+import Home from "@/app/component/Home";
+import TopRatedMovie from "@/app/component/TopRatedMovies";
+import StreamCard from "@/app/component/StreamCard";
+import Mempership from "@/app/component/Mempership";
+import Faqs from "@/app/component/Faqs";
+import Footer from "@/app/component/Footer";
 
-const Hero: React.FC = () => {
+function TokenHandler() {
   const searchParams = useSearchParams();
-  const token = searchParams.get("token"); // ✅ read ?token= from URL
+  const token = searchParams.get("token");
 
   useEffect(() => {
     if (token) {
@@ -23,8 +24,13 @@ const Hero: React.FC = () => {
     }
   }, [token]);
 
+  return null; // nothing to render
+}
+
+const Hero: React.FC = () => {
   return (
     <Suspense fallback={<Loader />}>
+      <TokenHandler /> {/* ✅ wrapped in Suspense */}
       <NavbarCom />
       <Home />
       <TopRatedMovie />
